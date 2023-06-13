@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration in Thymeleaf</title>
+</head>
+<body>
+
+  <h1>Iteration in Thymeleaf  <span th:text="${names}"></span></h1>
+
+    <ul>
+
+        <li th:each="n : ${names}" >
+            <span th:text="${n}" ></span>
+        </li>
+
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditions</title>
+</head>
+<body>
+
+    <h1>Is today any special day? <span th:style="${isActive} ? 'color:green' : 'color:red'"  th:text="${isActive} ? 'Yes' : 'No'"></span> </h1>
+
+    <h1 th:if="${gender}=='M'">Male</h1>
+    <h1 th:unless="${gender}=='M'">Female</h1>
+
+    <div th:switch="${#lists.size(myList)}">
+        <h1 th:case="'0'">List Contain Zero Elements</h1>
+        <h1 th:case="'1'">List Contain One Elements</h1>
+        <h1 th:case="*">
+
+            List Contain More than One Element
+
+        </h1>
+
+    </div>
+
+</body>
+</html>
