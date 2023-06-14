@@ -72,13 +72,14 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form th:action="@{/process}" method="post" th:object="${LogIn}">
+                        <form th:action="@{/process}" method="post" th:object="${Login}">
 
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">User Name</label>
                                 <input type="text" id="form3Example3" th:value="${LogIn.userName}" class="form-control" />
+
 
                             </div>
 
