@@ -1,9 +1,14 @@
 package com.thymeleaf.controller;
 
+import com.thymeleaf.model.LogIn;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -48,8 +53,20 @@ public class MyController {
 
 
     @GetMapping("/login")
-    public String LogIn(){
+    public String LogIn(Model model){
+        model.addAttribute("logIn", new LogIn());
         return "Login";
     }
 
+
+    //handle for process form
+    @PostMapping("/process")
+    public String processForm(@Valid @ModelAttribute("LogIn") LogIn logIn, BindingResult result){
+
+        if(result.hasErrors()){
+            System.out.println(result);
+        }
+
+        return "success";
+    }
 }
