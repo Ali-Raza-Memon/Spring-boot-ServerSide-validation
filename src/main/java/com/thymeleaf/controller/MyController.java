@@ -1,6 +1,6 @@
 package com.thymeleaf.controller;
 
-import com.thymeleaf.model.LogIn;
+import com.thymeleaf.model.LoginData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -52,16 +52,17 @@ public class MyController {
     }
 
 
-    @GetMapping("/login")
-    public String LogIn(Model model){
-        model.addAttribute("logIn", new LogIn());
-        return "Login";
+    @GetMapping("/form")
+    public String openForm(Model model){
+        System.out.println("opening form");
+        model.addAttribute("loginData", new LoginData());
+        return "form";
     }
 
 
     //handle for process form
     @PostMapping("/process")
-    public String processForm(@Valid @ModelAttribute("LogIn") LogIn logIn, BindingResult result){
+    public String processForm(@Valid @ModelAttribute("loginData") LoginData loginData, BindingResult result){
 
         if(result.hasErrors()){
             System.out.println(result);
